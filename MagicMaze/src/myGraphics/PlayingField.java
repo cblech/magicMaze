@@ -5,12 +5,22 @@
  */
 package myGraphics;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
  *
  * @author cblech
  */
-public class PlayingField extends JPanel{
-    
+public class PlayingField extends JPanel {
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.black);
+        g.drawRect(20, 20, 100, 100);
+        System.out.println("printing");
+        
+    }
 }

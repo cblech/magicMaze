@@ -5,6 +5,11 @@
  */
 package myGraphics;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.BoxLayout;
+
 /**
  *
  * @author cblech
@@ -17,7 +22,11 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         playingField = new PlayingField();
-        pfTemplate = playingField;
+        pfTemplate.add(playingField, BorderLayout.CENTER);
+        //playingField.setSize(200, 200);
+        pack();
+        //playingField.setBackground(Color.red);
+        
     }
 
     /**
@@ -34,7 +43,7 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pfTemplate.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        pfTemplate.setLayout(null);
+        pfTemplate.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
