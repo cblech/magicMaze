@@ -2,15 +2,15 @@
     "filePurpose": "tiles",
     "version": "0.1",
     "tiles": {
-        "cm": "Colors: o g y p",
-        "cm": "Air: a",
-        "cm": "Time: z",
-        "cm": "Teleport: t<color>",
-        "cm": "Entrance: e",
-        "cm": "Search: s<color>",
-        "cm": "Exit: x<color>",
-        "cm": "Bridge: b<toField>",
-        "cm": "Wall: w",
+        "cm1": "Colors: o g y p",
+        "cm2": "Air: a",
+        "cm3": "Time: z",
+        "cm4": "Teleport: t<color>",
+        "cm5": "Entrance: e",
+        "cm6": "Search: s<color>",
+        "cm7": "Exit: x<color>",
+        "cm8": "Bridge: b<toField>",
+        "cm9": "Wall: w",
 
         "1a": {
             "fields": [
@@ -19,7 +19,6 @@
                 ["to", "a", "a", "sg"],
                 ["tg", "sy", "b34", "w"]
             ],
-            "cm": "top:1, right:2",
             "walls": [
                 ["1", "1", "0", "3"],
                 ["1", "0", "0", "3"],
@@ -34,7 +33,6 @@
                 ["a", "a", "a", "sy"],
                 ["a", "so", "b34", "w"]
             ],
-            "cm": "top:1, right:2",
             "walls": [
                 ["3", "1", "0", "3"],
                 ["2", "0", "3", "2"],
@@ -49,13 +47,12 @@
                 ["w", "w", "a", "e"],
                 ["w", "so", "a", "tg"]
             ],
-            "cm": "top:1, right:2",
             "walls": [
                 ["3", "0", "0", "0"],
                 ["2", "0", "0", "3"],
                 ["0", "0", "1", "0"],
                 ["0", "1", "0", "3"]
             ]
-        },
+        }
     }
 }

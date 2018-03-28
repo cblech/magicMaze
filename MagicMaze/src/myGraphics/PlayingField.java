@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class PlayingField extends JPanel {
     private ArrayList<ArrayList<Tile>> tiles;
     
-    Tile t = new Tile();
+    Tile t = new Tile("1a");
 
     @Override
     protected void paintComponent(Graphics g) {
