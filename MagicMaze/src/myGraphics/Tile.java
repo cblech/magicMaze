@@ -8,7 +8,6 @@ package myGraphics;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Random;
 import java.util.Scanner;
 import org.json.JSONObject;
 
@@ -81,7 +80,7 @@ class Tile {
                     }
                 }
                 if (j > 0) {
-                    if (tile.getJSONArray("walls").getJSONArray(i).getString(j - 1) .equals("0")
+                    if (tile.getJSONArray("walls").getJSONArray(i).getString(j - 1).equals("0")
                             || tile.getJSONArray("walls").getJSONArray(i).getString(j - 1).equals("1")) {
                         l = false;
                     }
@@ -93,11 +92,26 @@ class Tile {
     }
 
     public void draw(NormalGraphics ng) {
-        ng.setColor(Color.BLACK);
+        //Colors
+        Color black = Color.black;
+        Color green = new Color(19, 236, 19);
+        Color orange = new Color(236, 128, 19);
+        Color purple = new Color(142, 11, 109);
+        Color yellow = new Color(236, 236, 19);
+
+        ng.setColor(black);
         ng.fillRect(.02f, .02f, .08f, .96f);
         ng.fillRect(.90f, .02f, .08f, .96f);
         ng.fillRect(.10f, .02f, .80f, .08f);
         ng.fillRect(.10f, .90f, .80f, .08f);
+
+        ng.drawLine(.1f, .3f, .9f, .3f);
+        ng.drawLine(.1f, .5f, .9f, .5f);
+        ng.drawLine(.1f, .7f, .9f, .7f);
+
+        ng.drawLine(.3f, .1f, .3f, .9f);
+        ng.drawLine(.5f, .1f, .5f, .9f);
+        ng.drawLine(.7f, .1f, .7f, .9f);
 
         for (int i = 0; i < fields.length; i++) {
             for (int j = 0; j < fields[i].length; j++) {
@@ -132,10 +146,24 @@ class Tile {
                     }
                     ng.fillCirc(j * .2f + .2f, i * .2f + .25f, .02f);
 
-                    ng.setColor(Color.black);
-
+                    ng.setColor(black);
                 }
+            }
+        }
+        ng.setColor(black);
 
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (j < 3) {
+                    if (fields[i][j].isWallRight()) {
+                        ng.fillRect(j * .2f + .29f, i * .2f + .1f, .02f, .2f);
+                    }
+                }
+                if (i < 3) {
+                    if (fields[i][j].isWallDown()) {
+                        ng.fillRect(j * .2f + .1f, i * .2f + .29f, .2f, .02f);
+                    }
+                }
             }
         }
 
@@ -158,7 +186,7 @@ class Tile {
             this.wallRight = right;
             this.wallDown = down;
             this.wallLeft = left;
-            this.isWall = type == "w";
+            this.isWall = type.equals("w");
         }
 
         public boolean isWall() {

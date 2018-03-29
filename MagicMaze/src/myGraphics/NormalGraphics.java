@@ -19,6 +19,12 @@ public class NormalGraphics {
     private int y;
     private float scale;
 
+    public NormalGraphics(NormalGraphics g, float x, float y, float scale) {
+        this.g = g.g;
+        this.x = g.x+(int)(x*g.scale);
+        this.y = g.y+(int)(y*g.scale);
+        this.scale = g.scale*scale;
+    }
     public NormalGraphics(Graphics g, int x, int y, float scale) {
         this.g = g;
         this.x = x;
@@ -42,16 +48,30 @@ public class NormalGraphics {
         g.fillRect(
                 this.x + (int) (x * scale),
                 this.y + (int) (y * scale),
-                this.x + (int) (width * scale),
-                this.y + (int) (height * scale));
+                (int) (width * scale),
+                (int) (height * scale));
+    }
+    public void drawRect(float x, float y, float width, float height) {
+        g.drawRect(
+                this.x + (int) (x * scale),
+                this.y + (int) (y * scale),
+                (int) (width * scale),
+                (int) (height * scale));
     }
 
     public void fillCirc(float x, float y, float radius) {
         g.fillOval(
-                this.x - (int) (radius  * scale) + (int) (x * scale), 
-                this.y - (int) (radius  * scale) + (int) (y * scale), 
-                (int) (radius * 2 * scale), 
+                this.x - (int) (radius * scale) + (int) (x * scale),
+                this.y - (int) (radius * scale) + (int) (y * scale),
+                (int) (radius * 2 * scale),
                 (int) (radius * 2 * scale));
+    }
+    public void drawOutline(Color c){
+      g.setColor(c);
+        drawRect(0, 0, 1, 1);
+    }
+    public void drawOutline(){
+        drawOutline(Color.red);
     }
 
 }
